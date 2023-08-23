@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_api_bloc/views/list_item.dart';
 import 'package:flutter_api_bloc/models/posts.dart';
 
 // Initial state corresponding widget
@@ -44,10 +45,7 @@ class PostLoadedWidget extends StatelessWidget {
             itemCount: posts.length,
             itemBuilder: (context, index) => Padding(
               padding: const EdgeInsets.all(10.0),
-              child: PostListTile(
-                  post: posts[index],
-                  context: context,
-                  titleColor: Colors.blue.shade200),
+              child: ListItem(post: posts[index]),
             ),
           ),
         ],
@@ -70,24 +68,4 @@ class PostErrorWidget extends StatelessWidget {
       ),
     );
   }
-}
-
-// PostListTile for Loaded state widget
-
-class PostListTile extends ListTile {
-  final Post post;
-  final BuildContext context;
-  final Color titleColor;
-  PostListTile(
-      {required this.titleColor,
-      required this.context,
-      required this.post,
-      super.key})
-      : super(
-          tileColor: titleColor,
-          subtitle: FittedBox(child: Text(post.title.toString())),
-          trailing: SizedBox(
-              height: ((MediaQuery.sizeOf(context).height) * 0.5),
-              child: FittedBox(child: Text(post.body))),
-        );
 }
