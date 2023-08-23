@@ -7,7 +7,7 @@ class ListItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double heightOfContainer = MediaQuery.sizeOf(context).height * 0.2;
+    double heightOfContainer = MediaQuery.sizeOf(context).height * 0.25;
     double widthOfContainer = MediaQuery.sizeOf(context).width;
     //show item on UI using listView
     return Container(
@@ -25,7 +25,7 @@ class ListItem extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
               SizedBox(
-                height: heightOfContainer * 0.3,
+                height: heightOfContainer * 0.05,
               ),
               Text(post.body, textAlign: TextAlign.center),
             ],
